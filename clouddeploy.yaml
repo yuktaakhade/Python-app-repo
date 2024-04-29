@@ -11,7 +11,7 @@ steps:
     args:
       - '-c'
       - |
-        gcloud compute ssh python-app-instance --zone=us-central1-c --command="docker run -p 80:80 us-central1-docker.pkg.dev/midyear-byway-418606/python-app-artifact-repo/python-app-image:${SHORT_SHA}"
+        gcloud compute ssh python-app-instance --zone=us-central1-c --command="docker run -p 80:82 us-central1-docker.pkg.dev/midyear-byway-418606/python-app-artifact-repo/python-app-image:${SHORT_SHA}"
 
 options:
   logging: CLOUD_LOGGING_ONLY
