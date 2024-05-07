@@ -14,12 +14,12 @@ jobs:
         with:
           version: latest
       - run: gcloud auth configure-docker --quiet
-      - run: docker build -t gcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.sha }} .
-      - run: docker push gcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.sha }}
+      - run: docker build -t gcr.io/$us-central1-docker.pkg.dev/midyear-byway-418606/wif-demo:${{ github.sha }} .
+      - run: docker push gcr.io/$us-central1-docker.pkg.dev/midyear-byway-418606/wif-demo:${{ github.sha }}
       - run: gcloud compute instances create instance-wif-demo \
           --image-project=ubuntu-2004-focal-v20240426 \
           --machine-type=e2-micro-standard-4 \
           --scopes cloud-platform \
           --metadata-from-file startup-script=startup-script.sh \
           --metadata google-docker-registry=gcr.io \
-          --metadata google-docker-image=${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.sha }}
+          --metadata google-docker-image=$us-central1-docker.pkg.dev/midyear-byway-418606/wif-demo:${{ github.sha }}
