@@ -16,7 +16,7 @@ jobs:
       - name: Build Python application
         run: python setup.py build
       - name: Deploy Python application to VM instance
-        uses: google-github-actions/deploy-to-gce@v0.2.0
+        uses: google-github-actions/.github/workflows/deploy@v0.2.0
         with:
           project_id: midyear-byway-418606
           zone: us-central1-a
