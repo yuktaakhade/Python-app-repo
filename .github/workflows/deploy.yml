@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: yuktaakhade/Python-app-repo@v1
+      - uses: yuktaakhade/Python-app-repo@main
       - name: Install Python dependencies
         run: pip install -r requirements.txt
       - name: Build Python application
