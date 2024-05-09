@@ -24,3 +24,4 @@ jobs:
           service_account_file: ${{ secrets.SERVICE_ACCOUNT }}
           source_path: dist/my-app.zip
           destination_path: /tmp/my-app.zip
+
