@@ -10,17 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: yuktaakhade/Python-app-repo@main
+
       - name: Install Python dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
       - name: Build Python application
         run: python setup.py build
+
+      - name: Package Python application
+        run: zip -r my-app.zip .
+
       - name: Deploy Python application to VM instance
         uses: google-github-actions/compute-deploy@v1
         with:
-          project_id: midyear-byway-418606
+          project_id: demo-wif-intance
           zone: us-central1-a
-          instance_name: demo-wif-instance
-          service_account_file: ${{ secrets.SERVICE_ACCOUNT }}
-          source_path: dist/my-app.zip
+          instance_name: your-vm-instance-name
+          service_account_key: ${{ secrets.SERVICE_ACCOUNT }}
+          source_path: my-app.zip
           destination_path: /tmp/my-app.zip
