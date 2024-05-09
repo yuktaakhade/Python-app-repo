@@ -19,7 +19,7 @@ jobs:
         with:
           project_id: midyear-byway-418606
           zone: us-central1-a
-          instance_name: demo-wif-intance
+          instance_name: demo-wif-instance
           service_account_file: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
           wiff_key_file: ${{ secrets.WIF_KEY }}
           source_path: dist/my-app.zip
