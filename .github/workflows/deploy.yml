@@ -10,17 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: yuktaakhade/Python-app-repo@v1
       - name: Install Python dependencies
         run: pip install -r requirements.txt
       - name: Build Python application
         run: python setup.py build
       - name: Deploy Python application to VM instance
-        uses: google-github-actions/deploy
+        uses: google-github-actions/deploy@v1
         with:
           project_id: midyear-byway-418606
           zone: us-central1-a
           instance_name: demo-wif-instance
           service_account_file: ${{ secrets.SERVICE_ACCOUNT }}
-          # wiff_key_file: ${{ secrets.WIF_KEY }}
           source_path: dist/my-app.zip
           destination_path: /tmp/my-app.zip
