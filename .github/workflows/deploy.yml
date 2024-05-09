@@ -15,7 +15,7 @@ jobs:
       - name: Build Python application
         run: python setup.py build
       - name: Deploy Python application to VM instance
-        uses: google-github-actions/compute-deploy@v1
+        uses: google-github-actions/deploy
         with:
           project_id: midyear-byway-418606
           zone: us-central1-a
