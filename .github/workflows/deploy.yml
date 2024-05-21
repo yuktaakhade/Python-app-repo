@@ -21,6 +21,8 @@ jobs:
         with:
           service_account_email: ${{ secrets.GCP_SA_EMAIL }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_environment_variables: true
+          cleanup_credentials: true
 
       - name: Push Docker image to Google Container Registry
         run: |
@@ -29,9 +31,5 @@ jobs:
       - name: Deploy to Compute Engine
         run: |
           gcloud compute instances update-container instance-wif-github \
-            --container-image gcr.io/us-central1-docker.pkg.dev/midyear-byway-418606/wif-demo\
+            --container-image gcr.io/us-central1-docker.pkg.dev/midyear-byway-418606/wif-demo \
             --zone us-central1-a
-        # env:
-        #   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-        #   INSTANCE_NAME: instance-wif-github
-        #   INSTANCE_ZONE: us-central1-a
