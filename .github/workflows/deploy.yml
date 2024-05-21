@@ -17,7 +17,7 @@ jobs:
         run: docker build -t gcr.io/us-central1-docker.pkg.dev/midyear-byway-418606/wif-demo .
 
       - name: Configure Docker authentication
-        uses: google-github-actions/auth@main
+        uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
           export_environment_variables: true
