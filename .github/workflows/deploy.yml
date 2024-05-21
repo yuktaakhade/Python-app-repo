@@ -25,7 +25,7 @@ jobs:
 
       - name: Push Docker image to Google Container Registry
         run: |
-          docker push gcr.io/us-central1-docker.pkg.dev/midyear-byway-418606/wif-demo/demo
+          docker push gcr.io/us-central1-docker.pkg.dev/midyear-byway-418606/wif-demo 
 
       - name: Deploy to Compute Engine 
         run: |
