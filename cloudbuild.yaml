@@ -2,6 +2,7 @@
 #   # Build Docker image
 #   - name: 'gcr.io/cloud-builders/docker'
 #     args: ['build', '-t', 'us-central1-docker.pkg.dev/midyear-byway-418606/python-app-artifact-repo/python-app-image:${SHORT_SHA}', '.']
+                            
 
 #   # Docker push to Google Artifact Registry
 #   - name: 'gcr.io/cloud-builders/docker'
